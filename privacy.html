@@ -1,173 +1,360 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung – Sparring Timer</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            line-height: 1.7;
-            color: #333;
-            background: #f7f7f7;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b0d">
+  <title>Datenschutzerklärung – Sparring Timer</title>
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --card: #151518;
+      --card-2: #1d1d21;
+      --text: #f4f4f5;
+      --muted: #b7b7bd;
+      --red: #ff2438;
+      --border: #303036;
+      --max: 900px;
+    }
 
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,.1);
-        }
+    * { box-sizing: border-box; }
 
-        h1 {
-            color: #1f1f1f;
-            border-bottom: 3px solid #d32f2f;
-            padding-bottom: 10px;
-        }
+    html { scroll-behavior: smooth; }
 
-        h2 {
-            margin-top: 35px;
-            color: #d32f2f;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(255,36,56,.10), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-        ul {
-            padding-left: 20px;
-        }
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 46px 0 64px;
+    }
 
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
-        }
+    header {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #17171a, #101012);
+      box-shadow: 0 16px 45px rgba(0,0,0,.28);
+      margin-bottom: 24px;
+    }
 
-        a {
-            color: #d32f2f;
-            text-decoration: none;
-        }
+    .eyebrow {
+      color: var(--red);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      margin-bottom: 8px;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      line-height: 1.08;
+    }
 
-        strong {
-            color: #111;
-        }
-    </style>
+    .app-name {
+      color: var(--red);
+    }
+
+    .meta {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+    }
+
+    section {
+      padding: 26px 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.28rem;
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.3rem;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    strong {
+      color: #ffffff;
+    }
+
+    .note {
+      border-left: 4px solid var(--red);
+      background: var(--card-2);
+      padding: 14px 16px;
+      border-radius: 8px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    a {
+      color: #ff6a78;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+      padding-top: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        width: min(100% - 20px, var(--max));
+        padding-top: 20px;
+      }
+
+      header, section {
+        padding: 22px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Datenschutz</div>
+      <h1>Datenschutzerklärung<br><span class="app-name">Sparring Timer</span></h1>
+      <p class="meta">Entwickler: Breakroomdancer · Stand: 8. August 2026</p>
+    </header>
 
-<div class="container">
+    <main>
+      <section>
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Breakroomdancer<br>
+          E-Mail:
+          <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
+        </p>
+      </section>
 
-<h1>Datenschutzerklärung</h1>
+      <section>
+        <h2>2. Grundsatz der Datenverarbeitung</h2>
+        <p>
+          Sparring Timer wurde so entwickelt, dass die App ohne Registrierung,
+          Benutzerkonto und ohne Übermittlung persönlicher Trainings- oder Nutzungsdaten
+          an den Entwickler verwendet werden kann.
+        </p>
+        <p>
+          Die App verwendet keine Werbung, keine Analyse- oder Tracking-Dienste und
+          keine Social-Media-Integrationen. Die für die Timer-Funktionen benötigten
+          Einstellungen werden lokal auf dem Gerät verarbeitet.
+        </p>
+      </section>
 
-<p><strong>Sparring Timer</strong><br>
-Entwickler: <strong>Breakroomdancer</strong></p>
+      <section>
+        <h2>3. Lokal gespeicherte Einstellungen und Presets</h2>
+        <p>
+          Sparring Timer speichert Einstellungen lokal auf dem Gerät, damit sie beim
+          nächsten Start wieder zur Verfügung stehen. Dazu können insbesondere gehören:
+        </p>
+        <ul>
+          <li>Rundendauer und Pausendauer</li>
+          <li>Anzahl der Runden</li>
+          <li>Einstellungen des Random-Modus einschließlich Mindest- und Maximalzeit</li>
+          <li>Countdown-Einstellungen für Start, Runde und Pause</li>
+          <li>Sound- und Vibrationseinstellungen</li>
+          <li>Einstellung zur vorübergehenden Absenkung anderer Audio-Wiedergaben</li>
+          <li>gespeicherte Presets und das aktuell ausgewählte Preset</li>
+          <li>Verweise und Namen vom Nutzer ausgewählter eigener Sounds</li>
+        </ul>
+        <p class="note">
+          Diese Einstellungen werden von Sparring Timer nicht an den Entwickler oder an
+          eigene externe Server übertragen.
+        </p>
+      </section>
 
-<p>Stand: 31. Juli 2026</p>
+      <section>
+        <h2>4. Eigene Sounds und Audiodateien</h2>
+        <p>
+          Neben den in der App enthaltenen Sounds können Nutzer eigene Audiodateien für
+          Timer-Ereignisse auswählen, zum Beispiel für Rundenbeginn, Rundenende,
+          Countdown oder Trainingsende.
+        </p>
+        <p>
+          Die Auswahl erfolgt über die von Android bereitgestellte Dateiauswahl.
+          Sparring Timer speichert für die weitere Verwendung lokale Verweise auf die
+          ausgewählten Dateien sowie deren Namen. Die Audiodateien werden nicht auf
+          einen Server des Entwicklers hochgeladen und nicht an den Entwickler oder
+          Dritte übertragen.
+        </p>
+      </section>
 
-<h2>1. Verantwortlicher</h2>
+      <section>
+        <h2>5. Audio-Fokus und „Musik leiser“</h2>
+        <p>
+          Ist die Funktion <strong>„Musik leiser“</strong> aktiviert, kann Sparring Timer
+          während eigener Timersignale den Android-Audiofokus verwenden. Dadurch kann die
+          Wiedergabe einer anderen Audio-App vorübergehend abgesenkt und anschließend
+          wieder freigegeben werden.
+        </p>
+        <p>
+          Sparring Timer erhält dadurch keinen Zugriff auf Wiedergabelisten,
+          Kontoinformationen oder sonstige Inhalte der anderen Audio-App.
+        </p>
+      </section>
 
-<p>
-Breakroomdancer<br>
-E-Mail:
-<a href="mailto:breakroomdancer@gmail.com">
-breakroomdancer@gmail.com
-</a>
-</p>
+      <section>
+        <h2>6. Vibration</h2>
+        <p>
+          Auf Wunsch ergänzt die App Timersignale durch Vibrationssignale. Die dafür
+          verwendete Vibrationsberechtigung dient ausschließlich der haptischen
+          Rückmeldung. Hierbei werden keine personenbezogenen Daten an den Entwickler
+          übertragen.
+        </p>
+      </section>
 
-<h2>2. Erhebung personenbezogener Daten</h2>
+      <section>
+        <h2>7. Benachrichtigungen und Hintergrundbetrieb</h2>
+        <p>
+          Damit ein vom Nutzer gestarteter Timer auch bei gesperrtem Bildschirm oder
+          während der Nutzung einer anderen App zuverlässig weiterlaufen kann, verwendet
+          Sparring Timer einen Foreground Service.
+        </p>
+        <p>
+          Während eines laufenden Trainings kann Android eine Benachrichtigung mit dem
+          aktuellen Timerstatus und Bedienelementen anzeigen. Je nach Timerzustand kann
+          der Timer darüber beispielsweise pausiert, fortgesetzt oder beendet werden.
+        </p>
+        <p>
+          Die hierfür verarbeiteten Timerinformationen werden lokal auf dem Gerät
+          verwendet und nicht an den Entwickler oder eigene externe Server übertragen.
+        </p>
+      </section>
 
-<p>
-Sparring Timer erhebt, verarbeitet oder speichert keine personenbezogenen Daten.
-Es ist keine Registrierung erforderlich und es werden keine Benutzerkonten erstellt.
-</p>
+      <section>
+        <h2>8. Internetverbindung</h2>
+        <p>
+          Für die grundlegenden Funktionen von Sparring Timer ist keine Internetverbindung
+          erforderlich. Die App fordert keine Android-Internetberechtigung an und
+          überträgt keine Timer-Einstellungen, Presets oder Trainingsdaten an eigene
+          externe Server.
+        </p>
+      </section>
 
-<h2>3. Lokale Speicherung</h2>
+      <section>
+        <h2>9. Bluetooth-Lautsprecher und Kopfhörer</h2>
+        <p>
+          Die Audioausgabe kann über die von Android aktuell verwendete Audioausgabe
+          erfolgen, beispielsweise über bereits verbundene Bluetooth-Lautsprecher oder
+          Kopfhörer.
+        </p>
+        <p>
+          Sparring Timer fordert keine Bluetooth-Berechtigung an, sucht nicht selbst nach
+          Bluetooth-Geräten und liest keine Bluetooth-Gerätelisten aus.
+        </p>
+      </section>
 
-<p>
-Die App speichert ausschließlich die vom Nutzer vorgenommenen Timer-Einstellungen lokal auf dem Gerät, beispielsweise:
-</p>
+      <section>
+        <h2>10. Werbung, Analyse und Tracking</h2>
+        <p>Sparring Timer verwendet keine:</p>
+        <ul>
+          <li>Werbenetzwerke</li>
+          <li>Tracking-Dienste</li>
+          <li>Analyse-Tools wie Firebase Analytics</li>
+          <li>Crash-Reporting-Dienste von Drittanbietern</li>
+          <li>Social-Media-Tracking- oder Login-SDKs</li>
+        </ul>
+      </section>
 
-<ul>
-<li>Rundenzahl</li>
-<li>Rundendauer</li>
-<li>Pausendauer</li>
-<li>weitere App-Einstellungen</li>
-</ul>
+      <section>
+        <h2>11. Weitergabe von Daten</h2>
+        <p>
+          Sparring Timer übermittelt keine persönlichen Trainings- oder Nutzungsdaten an
+          den Entwickler. Eine Weitergabe solcher Daten durch den Entwickler an Dritte
+          findet daher nicht statt.
+        </p>
+      </section>
 
-<p>
-Diese Informationen verbleiben ausschließlich auf dem Gerät und werden nicht an den Entwickler oder Dritte übertragen.
-</p>
+      <section>
+        <h2>12. Android-Backup</h2>
+        <p>
+          Die App erlaubt grundsätzlich die Nutzung der Android-Backup-Funktion. Abhängig
+          von den Geräteeinstellungen, der Android-Version und den für die App geltenden
+          Backup-Regeln können lokal gespeicherte App-Daten durch das Betriebssystem
+          gesichert oder auf ein neues Gerät übertragen werden.
+        </p>
+        <p>
+          Ein solches Backup wird durch Android bzw. den vom Nutzer verwendeten
+          Betriebssystem-/Backup-Dienst verwaltet und nicht durch einen eigenen Server
+          von Sparring Timer.
+        </p>
+      </section>
 
-<h2>4. Internetverbindung</h2>
+      <section>
+        <h2>13. Löschung lokal gespeicherter Daten</h2>
+        <p>
+          Einzelne Presets können innerhalb der App gelöscht werden. Weitere lokal
+          gespeicherte App-Daten können über die Android-Systemeinstellungen durch
+          Löschen der App-Daten oder durch Deinstallation der App entfernt werden.
+        </p>
+      </section>
 
-<p>
-Sparring Timer benötigt keine Internetverbindung.
-Die App kommuniziert nicht mit externen Servern und überträgt keine Daten über das Internet.
-</p>
+      <section>
+        <h2>14. Änderungen dieser Datenschutzerklärung</h2>
+        <p>
+          Diese Datenschutzerklärung wird angepasst, wenn neue Funktionen hinzukommen,
+          sich die Datenverarbeitung ändert oder eine Aktualisierung aus rechtlichen oder
+          technischen Gründen erforderlich wird. Auf dieser Seite wird jeweils die
+          aktuelle Fassung veröffentlicht.
+        </p>
+      </section>
 
-<h2>5. Werbung und Tracking</h2>
+      <section>
+        <h2>15. Kontakt</h2>
+        <p>
+          Bei Fragen zum Datenschutz oder zu Sparring Timer erreichst du den Entwickler
+          unter:
+        </p>
+        <p>
+          Breakroomdancer<br>
+          E-Mail:
+          <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
+        </p>
+      </section>
+    </main>
 
-<p>Die App verwendet keine:</p>
-
-<ul>
-<li>Werbung</li>
-<li>Tracking-Dienste</li>
-<li>Analyse-Tools (z. B. Firebase Analytics)</li>
-<li>Social-Media-Integrationen</li>
-</ul>
-
-<h2>6. Berechtigungen</h2>
-
-<p>
-Die App verwendet ausschließlich Berechtigungen, die für ihre Funktion notwendig sind:
-</p>
-
-<ul>
-<li>Vibration zur haptischen Rückmeldung.</li>
-<li>Benachrichtigungen, damit ein laufender Timer sichtbar bleibt.</li>
-<li>Foreground Service, damit der Timer auch bei gesperrtem Bildschirm oder im Hintergrund zuverlässig weiterläuft.</li>
-</ul>
-
-<p>
-Diese Berechtigungen dienen ausschließlich der Funktion der App. Es werden dadurch keine personenbezogenen Daten erhoben oder übertragen.
-</p>
-
-<h2>7. Weitergabe von Daten</h2>
-
-<p>
-Es werden keinerlei personenbezogene Daten an Dritte weitergegeben.
-</p>
-
-<h2>8. Änderungen dieser Datenschutzerklärung</h2>
-
-<p>
-Sollte die App künftig erweitert werden und personenbezogene Daten verarbeiten, wird diese Datenschutzerklärung entsprechend angepasst.
-</p>
-
-<h2>9. Kontakt</h2>
-
-<p>
-Bei Fragen zum Datenschutz oder zur App erreichst du den Entwickler unter:
-</p>
-
-<p>
-<strong>Breakroomdancer</strong><br>
-<a href="mailto:breakroomdancer@gmail.com">
-breakroomdancer@gmail.com
-</a>
-</p>
-
-</div>
-
-<footer>
-© 2026 Breakroomdancer
-</footer>
-
+    <footer>
+      © 2026 Breakroomdancer · Sparring Timer
+    </footer>
+  </div>
 </body>
 </html>
