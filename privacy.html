@@ -19,14 +19,13 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(255,36,56,.10), transparent 34rem),
+        radial-gradient(circle at top right, rgba(255, 36, 56, .10), transparent 34rem),
         var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -43,8 +42,15 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       background: linear-gradient(145deg, #17171a, #101012);
-      box-shadow: 0 16px 45px rgba(0,0,0,.28);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, .28);
       margin-bottom: 24px;
+    }
+
+    .topline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .eyebrow {
@@ -62,13 +68,31 @@
       line-height: 1.08;
     }
 
-    .app-name {
-      color: var(--red);
+    .app-name { color: var(--red); }
+    .meta { color: var(--muted); margin: 0; }
+
+    .language-switch {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
-    .meta {
-      color: var(--muted);
-      margin: 0;
+    .language-switch button {
+      min-width: 54px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-2);
+      color: var(--text);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      border-color: var(--red);
+      background: var(--red);
+      color: #fff;
     }
 
     main {
@@ -89,26 +113,16 @@
       line-height: 1.3;
     }
 
-    p {
-      margin: 0 0 12px;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
+    p { margin: 0 0 12px; }
+    p:last-child { margin-bottom: 0; }
 
     ul {
       margin: 10px 0 0;
       padding-left: 1.3rem;
     }
 
-    li + li {
-      margin-top: 5px;
-    }
-
-    strong {
-      color: #ffffff;
-    }
+    li + li { margin-top: 5px; }
+    strong { color: #fff; }
 
     .note {
       border-left: 4px solid var(--red);
@@ -119,14 +133,9 @@
       margin-top: 14px;
     }
 
-    a {
-      color: #ff6a78;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #ff6a78; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    [hidden] { display: none !important; }
 
     footer {
       color: var(--muted);
@@ -141,9 +150,9 @@
         padding-top: 20px;
       }
 
-      header, section {
-        padding: 22px 20px;
-      }
+      header, section { padding: 22px 20px; }
+      .topline { display: block; }
+      .language-switch { margin-top: 22px; }
     }
   </style>
 </head>
@@ -151,203 +160,445 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="eyebrow">Datenschutz</div>
-      <h1>Datenschutzerklärung<br><span class="app-name">Sparring Timer</span></h1>
-      <p class="meta">Entwickler: Breakroomdancer · Stand: 8. August 2026</p>
+      <div class="topline">
+        <div>
+          <div class="eyebrow" data-de>Datenschutz</div>
+          <div class="eyebrow" data-en hidden>Privacy</div>
+          <h1 data-de>Datenschutzerklärung<br><span class="app-name">Sparring Timer</span></h1>
+          <h1 data-en hidden>Privacy Policy<br><span class="app-name">Sparring Timer</span></h1>
+          <p class="meta" data-de>Entwickler: Breakroomdancer · Stand: 21. August 2026</p>
+          <p class="meta" data-en hidden>Developer: Breakroomdancer · Last updated: August 21, 2026</p>
+        </div>
+        <div class="language-switch" aria-label="Sprache auswählen / Select language">
+          <button type="button" id="language-de" aria-pressed="true">DE</button>
+          <button type="button" id="language-en" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </header>
 
-    <main>
+    <main data-de>
       <section>
         <h2>1. Verantwortlicher</h2>
         <p>
           Breakroomdancer<br>
-          E-Mail:
-          <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
+          E-Mail: <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
         </p>
       </section>
 
       <section>
         <h2>2. Grundsatz der Datenverarbeitung</h2>
         <p>
-          Sparring Timer wurde so entwickelt, dass die App ohne Registrierung,
-          Benutzerkonto und ohne Übermittlung persönlicher Trainings- oder Nutzungsdaten
-          an den Entwickler verwendet werden kann.
+          Sparring Timer kann ohne Registrierung und ohne Benutzerkonto verwendet werden.
+          Die App übermittelt keine persönlichen Trainings- oder Nutzungsdaten an den
+          Entwickler und verwendet keine Werbung, Analyse-, Tracking- oder Social-Media-Dienste.
         </p>
         <p>
-          Die App verwendet keine Werbung, keine Analyse- oder Tracking-Dienste und
-          keine Social-Media-Integrationen. Die für die Timer-Funktionen benötigten
-          Einstellungen werden lokal auf dem Gerät verarbeitet.
+          Einstellungen und vom Nutzer ausgewählte Inhalte werden grundsätzlich lokal auf
+          dem Gerät verarbeitet. Ausnahmen können sich ausschließlich aus vom Nutzer
+          aktivierten Android-Systemdiensten ergeben, die in dieser Erklärung beschrieben sind.
         </p>
       </section>
 
       <section>
-        <h2>3. Lokal gespeicherte Einstellungen und Presets</h2>
-        <p>
-          Sparring Timer speichert Einstellungen lokal auf dem Gerät, damit sie beim
-          nächsten Start wieder zur Verfügung stehen. Dazu können insbesondere gehören:
-        </p>
+        <h2>3. Lokal gespeicherte App-Daten</h2>
+        <p>Damit Einstellungen nach einem Neustart erhalten bleiben, speichert die App lokal:</p>
         <ul>
-          <li>Rundendauer und Pausendauer</li>
-          <li>Anzahl der Runden</li>
-          <li>Einstellungen des Random-Modus einschließlich Mindest- und Maximalzeit</li>
-          <li>Countdown-Einstellungen für Start, Runde und Pause</li>
-          <li>Sound- und Vibrationseinstellungen</li>
-          <li>Einstellung zur vorübergehenden Absenkung anderer Audio-Wiedergaben</li>
-          <li>gespeicherte Presets und das aktuell ausgewählte Preset</li>
-          <li>Verweise und Namen vom Nutzer ausgewählter eigener Sounds</li>
+          <li>Runden-, Pausen-, Random- und Countdown-Einstellungen</li>
+          <li>Soundlautstärke, Vibration sowie Einstellungen zur Musiksteuerung</li>
+          <li>Presets, Trainingspläne, Abschnitte und Wiederholungsblöcke</li>
+          <li>ausgewählte Presets und Trainingspläne</li>
+          <li>Hintergrund-, Schrift- und Konturfarben sowie die Sichtbarkeit des Hintergrundlogos</li>
+          <li>die Einstellung zum Vorlesen von Aufgaben</li>
+          <li>die gewählte App-Sprache</li>
+          <li>Namen und lokale Kopien ausgewählter eigener Sounds und Logos</li>
+          <li>bei aktivierter Musiksteuerung den Paketnamen der von der App pausierten Audio-App</li>
         </ul>
         <p class="note">
-          Diese Einstellungen werden von Sparring Timer nicht an den Entwickler oder an
-          eigene externe Server übertragen.
+          Diese Daten werden nicht an den Entwickler oder an eigene externe Server übertragen.
         </p>
       </section>
 
       <section>
-        <h2>4. Eigene Sounds und Audiodateien</h2>
+        <h2>4. Eigene Sounds, Logos und Android-Dateiauswahl</h2>
         <p>
-          Neben den in der App enthaltenen Sounds können Nutzer eigene Audiodateien für
-          Timer-Ereignisse auswählen, zum Beispiel für Rundenbeginn, Rundenende,
-          Countdown oder Trainingsende.
+          Nutzer können über die Android-Systemauswahl eigene Audiodateien und Bilder auswählen.
+          Die App liest nur die konkret ausgewählte Datei und legt für die dauerhafte Nutzung eine
+          lokale Kopie im internen App-Speicher ab. Ein allgemeiner Zugriff auf Fotos, Medien oder
+          sonstige Dateien des Geräts wird nicht angefordert.
         </p>
         <p>
-          Die Auswahl erfolgt über die von Android bereitgestellte Dateiauswahl.
-          Sparring Timer speichert für die weitere Verwendung lokale Verweise auf die
-          ausgewählten Dateien sowie deren Namen. Die Audiodateien werden nicht auf
-          einen Server des Entwicklers hochgeladen und nicht an den Entwickler oder
-          Dritte übertragen.
-        </p>
-      </section>
-
-      <section>
-        <h2>5. Audio-Fokus und „Musik leiser“</h2>
-        <p>
-          Ist die Funktion <strong>„Musik leiser“</strong> aktiviert, kann Sparring Timer
-          während eigener Timersignale den Android-Audiofokus verwenden. Dadurch kann die
-          Wiedergabe einer anderen Audio-App vorübergehend abgesenkt und anschließend
-          wieder freigegeben werden.
-        </p>
-        <p>
-          Sparring Timer erhält dadurch keinen Zugriff auf Wiedergabelisten,
-          Kontoinformationen oder sonstige Inhalte der anderen Audio-App.
+          Die ausgewählten Dateien werden nicht auf einen Server des Entwicklers hochgeladen und
+          nicht vom Entwickler eingesehen. Beim Ersetzen oder Entfernen können die zuvor gespeicherten
+          lokalen Kopien innerhalb der App gelöscht werden.
         </p>
       </section>
 
       <section>
-        <h2>6. Vibration</h2>
+        <h2>5. Logoübertragung per QR-Code im lokalen Netzwerk</h2>
         <p>
-          Auf Wunsch ergänzt die App Timersignale durch Vibrationssignale. Die dafür
-          verwendete Vibrationsberechtigung dient ausschließlich der haptischen
-          Rückmeldung. Hierbei werden keine personenbezogenen Daten an den Entwickler
-          übertragen.
+          Auf Android TV kann ein Logo optional von einem zweiten Gerät übertragen werden. Nach
+          ausdrücklichem Start zeigt die App dafür einen QR-Code und öffnet vorübergehend einen
+          lokalen Übertragungsdienst. Beide Geräte müssen sich im selben lokalen Netzwerk befinden.
+        </p>
+        <p>
+          Das ausgewählte Bild, sein Dateiname sowie technisch notwendige Verbindungsdaten wie die
+          lokale IP-Adresse werden nur innerhalb des lokalen Netzwerks verarbeitet. Die Übertragung
+          erfolgt nicht über einen Server des Entwicklers. Der Zugriff ist durch eine zufällig
+          erzeugte, nur vorübergehend gültige Adresse geschützt und endet beim Schließen des Fensters
+          beziehungsweise nach abgeschlossener Übertragung.
+        </p>
+        <p class="note">
+          Die lokale Übertragung verwendet eine unverschlüsselte HTTP-Verbindung. Sie sollte deshalb
+          nur in einem vertrauenswürdigen privaten Netzwerk genutzt werden.
         </p>
       </section>
 
       <section>
-        <h2>7. Benachrichtigungen und Hintergrundbetrieb</h2>
+        <h2>6. Sprachausgabe von Aufgaben</h2>
         <p>
-          Damit ein vom Nutzer gestarteter Timer auch bei gesperrtem Bildschirm oder
-          während der Nutzung einer anderen App zuverlässig weiterlaufen kann, verwendet
-          Sparring Timer einen Foreground Service.
+          Trainingsaufgaben können auf Wunsch über die auf dem Gerät eingerichtete Android-Sprachausgabe
+          vorgelesen werden. Hierfür übergibt Sparring Timer ausschließlich die Bezeichnung der jeweiligen
+          Aufgabe an den ausgewählten Text-to-Speech-Dienst des Geräts.
         </p>
         <p>
-          Während eines laufenden Trainings kann Android eine Benachrichtigung mit dem
-          aktuellen Timerstatus und Bedienelementen anzeigen. Je nach Timerzustand kann
-          der Timer darüber beispielsweise pausiert, fortgesetzt oder beendet werden.
-        </p>
-        <p>
-          Die hierfür verarbeiteten Timerinformationen werden lokal auf dem Gerät
-          verwendet und nicht an den Entwickler oder eigene externe Server übertragen.
+          Sparring Timer übermittelt diese Texte nicht an den Entwickler. Ob ein verwendeter Sprachdienst
+          Texte ausschließlich lokal oder zusätzlich über Server seines Anbieters verarbeitet, richtet
+          sich nach dem ausgewählten Sprachdienst und dessen Datenschutzbestimmungen.
         </p>
       </section>
 
       <section>
-        <h2>8. Internetverbindung</h2>
+        <h2>7. Audiofokus und „Musik leiser“</h2>
         <p>
-          Für die grundlegenden Funktionen von Sparring Timer ist keine Internetverbindung
-          erforderlich. Die App fordert keine Android-Internetberechtigung an und
-          überträgt keine Timer-Einstellungen, Presets oder Trainingsdaten an eigene
-          externe Server.
+          Ist <strong>„Musik leiser“</strong> aktiviert, verwendet Sparring Timer während eigener
+          Timersignale den Android-Audiofokus. Dadurch kann die Wiedergabe einer anderen Audio-App
+          vorübergehend abgesenkt und anschließend wieder freigegeben werden.
+        </p>
+        <p>
+          Dadurch erhält die App keinen Zugriff auf Wiedergabelisten, Kontoinformationen oder Inhalte
+          der anderen Audio-App.
         </p>
       </section>
 
       <section>
-        <h2>9. Bluetooth-Lautsprecher und Kopfhörer</h2>
+        <h2>8. Optionale Musiksteuerung und Benachrichtigungszugriff</h2>
         <p>
-          Die Audioausgabe kann über die von Android aktuell verwendete Audioausgabe
-          erfolgen, beispielsweise über bereits verbundene Bluetooth-Lautsprecher oder
-          Kopfhörer.
+          Die optionale Funktion <strong>„Musik steuern“</strong> kann eine aktive Medienwiedergabe beim
+          Pausieren oder Beenden des Trainings anhalten und beim Fortsetzen wieder starten. Android verlangt
+          dafür die gesonderte Freigabe des Benachrichtigungszugriffs in den Systemeinstellungen.
         </p>
         <p>
-          Sparring Timer fordert keine Bluetooth-Berechtigung an, sucht nicht selbst nach
-          Bluetooth-Geräten und liest keine Bluetooth-Gerätelisten aus.
+          Sparring Timer verwendet diesen Zugriff, um aktive Mediensitzungen zu erkennen und deren
+          Wiedergabesteuerung auszulösen. Der Paketname der pausierten Audio-App wird lokal gespeichert,
+          damit nur diese Wiedergabe fortgesetzt wird. Benachrichtigungsinhalte werden von Sparring Timer
+          nicht gespeichert, ausgewertet oder an den Entwickler übertragen.
+        </p>
+        <p>
+          Die Funktion und der Benachrichtigungszugriff können jederzeit in der App beziehungsweise in
+          den Android-Systemeinstellungen deaktiviert werden.
         </p>
       </section>
 
       <section>
-        <h2>10. Werbung, Analyse und Tracking</h2>
+        <h2>9. Benachrichtigungen, Hintergrundbetrieb und Vibration</h2>
+        <p>
+          Damit ein gestarteter Timer auch bei gesperrtem Bildschirm oder während der Nutzung einer anderen
+          App weiterlaufen kann, verwendet Sparring Timer einen Vordergrunddienst. Android kann dabei eine
+          Benachrichtigung mit Timerstatus und Bedienelementen anzeigen. Die Benachrichtigungsberechtigung
+          kann abhängig von der Android-Version gesondert angefragt werden.
+        </p>
+        <p>
+          Optional ergänzt die App Timersignale durch Vibration. Timerstatus und Vibrationssignale werden
+          ausschließlich lokal verarbeitet und nicht an den Entwickler übertragen.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Internet- und Netzwerkzugriff</h2>
+        <p>
+          Der Internet- und lokale Netzwerkzugriff wird ausschließlich für die optionale QR-Logoübertragung
+          auf Android TV verwendet. Auf Smartphones und Tablets wird diese Netzwerkfunktion nicht genutzt.
+          Für Timer, Presets, Trainingspläne und die übrigen Grundfunktionen ist keine Internetverbindung
+          erforderlich.
+        </p>
+        <p>
+          Sparring Timer stellt keine Verbindung zu einem eigenen externen Server her und überträgt keine
+          Timer-Einstellungen, Trainingsdaten, Sounds oder Logos an den Entwickler.
+        </p>
+      </section>
+
+      <section>
+        <h2>11. Bluetooth-Lautsprecher und Kopfhörer</h2>
+        <p>
+          Die Audioausgabe kann über die von Android verwendete Audioausgabe erfolgen, etwa über bereits
+          verbundene Bluetooth-Lautsprecher oder Kopfhörer. Sparring Timer fordert keine Bluetooth-Berechtigung
+          an, sucht nicht selbst nach Geräten und liest keine Bluetooth-Gerätelisten aus.
+        </p>
+      </section>
+
+      <section>
+        <h2>12. Werbung, Analyse, Tracking und Weitergabe</h2>
         <p>Sparring Timer verwendet keine:</p>
         <ul>
-          <li>Werbenetzwerke</li>
-          <li>Tracking-Dienste</li>
-          <li>Analyse-Tools wie Firebase Analytics</li>
+          <li>Werbenetzwerke oder personalisierte Werbung</li>
+          <li>Tracking- oder Analyse-Dienste</li>
           <li>Crash-Reporting-Dienste von Drittanbietern</li>
           <li>Social-Media-Tracking- oder Login-SDKs</li>
         </ul>
-      </section>
-
-      <section>
-        <h2>11. Weitergabe von Daten</h2>
         <p>
-          Sparring Timer übermittelt keine persönlichen Trainings- oder Nutzungsdaten an
-          den Entwickler. Eine Weitergabe solcher Daten durch den Entwickler an Dritte
-          findet daher nicht statt.
+          Da der Entwickler keine persönlichen Trainings- oder Nutzungsdaten über die App erhält, findet
+          auch keine Weitergabe solcher Daten durch den Entwickler an Dritte statt.
         </p>
       </section>
 
       <section>
-        <h2>12. Android-Backup</h2>
+        <h2>13. Android-Backup und Geräteübertragung</h2>
         <p>
-          Die App erlaubt grundsätzlich die Nutzung der Android-Backup-Funktion. Abhängig
-          von den Geräteeinstellungen, der Android-Version und den für die App geltenden
-          Backup-Regeln können lokal gespeicherte App-Daten durch das Betriebssystem
-          gesichert oder auf ein neues Gerät übertragen werden.
+          Die App erlaubt grundsätzlich die Android-Backup- und Geräteübertragungsfunktionen. Abhängig von
+          Android-Version, Geräteeinstellungen und verwendetem Sicherungsdienst können lokal gespeicherte
+          App-Daten durch das Betriebssystem gesichert oder auf ein neues Gerät übertragen werden.
         </p>
         <p>
-          Ein solches Backup wird durch Android bzw. den vom Nutzer verwendeten
-          Betriebssystem-/Backup-Dienst verwaltet und nicht durch einen eigenen Server
-          von Sparring Timer.
-        </p>
-      </section>
-
-      <section>
-        <h2>13. Löschung lokal gespeicherter Daten</h2>
-        <p>
-          Einzelne Presets können innerhalb der App gelöscht werden. Weitere lokal
-          gespeicherte App-Daten können über die Android-Systemeinstellungen durch
-          Löschen der App-Daten oder durch Deinstallation der App entfernt werden.
+          Diese Verarbeitung wird durch Android beziehungsweise den vom Nutzer ausgewählten Backup-Dienst
+          gesteuert und nicht durch einen eigenen Server von Sparring Timer. Es gelten zusätzlich die
+          Datenschutzbestimmungen des jeweiligen Betriebssystem- oder Backup-Anbieters.
         </p>
       </section>
 
       <section>
-        <h2>14. Änderungen dieser Datenschutzerklärung</h2>
+        <h2>14. Speicherdauer und Löschung</h2>
         <p>
-          Diese Datenschutzerklärung wird angepasst, wenn neue Funktionen hinzukommen,
-          sich die Datenverarbeitung ändert oder eine Aktualisierung aus rechtlichen oder
-          technischen Gründen erforderlich wird. Auf dieser Seite wird jeweils die
-          aktuelle Fassung veröffentlicht.
+          Lokale App-Daten bleiben gespeichert, bis sie innerhalb der App gelöscht oder ersetzt werden,
+          die App-Daten über Android entfernt werden oder die App deinstalliert wird. Presets, Trainingspläne,
+          eigene Sounds und das Hintergrundlogo können innerhalb der App einzeln verwaltet oder gelöscht werden.
         </p>
       </section>
 
       <section>
-        <h2>15. Kontakt</h2>
+        <h2>15. Änderungen dieser Datenschutzerklärung</h2>
         <p>
-          Bei Fragen zum Datenschutz oder zu Sparring Timer erreichst du den Entwickler
-          unter:
+          Diese Datenschutzerklärung wird aktualisiert, wenn neue Funktionen hinzukommen, sich die
+          Datenverarbeitung ändert oder eine Anpassung aus rechtlichen oder technischen Gründen erforderlich
+          wird. Auf dieser Seite wird jeweils die aktuelle Fassung veröffentlicht.
+        </p>
+      </section>
+
+      <section>
+        <h2>16. Kontakt</h2>
+        <p>
+          Bei Fragen zum Datenschutz oder zu Sparring Timer erreichst du den Entwickler unter:
         </p>
         <p>
           Breakroomdancer<br>
-          E-Mail:
-          <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
+          E-Mail: <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <main data-en hidden>
+      <section>
+        <h2>1. Controller</h2>
+        <p>
+          Breakroomdancer<br>
+          Email: <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>2. General principles</h2>
+        <p>
+          Sparring Timer can be used without registration or a user account. The app does not transmit
+          personal training or usage data to the developer and does not use advertising, analytics,
+          tracking, or social-media services.
+        </p>
+        <p>
+          Settings and user-selected content are generally processed locally on the device. The only
+          exceptions may result from Android system services explicitly enabled by the user, as described
+          in this policy.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. App data stored locally</h2>
+        <p>To retain settings after a restart, the app stores the following data locally:</p>
+        <ul>
+          <li>round, break, random-mode, and countdown settings</li>
+          <li>sound volume, vibration, and music-control settings</li>
+          <li>presets, training plans, sections, and repetition blocks</li>
+          <li>the currently selected preset and training plan</li>
+          <li>background, text, and outline colors and background-logo visibility</li>
+          <li>the setting for reading tasks aloud</li>
+          <li>the selected app language</li>
+          <li>names and local copies of selected custom sounds and logos</li>
+          <li>when music control is enabled, the package name of the audio app paused by Sparring Timer</li>
+        </ul>
+        <p class="note">
+          This data is not transmitted to the developer or to the developer's external servers.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Custom sounds, logos, and the Android file picker</h2>
+        <p>
+          Users can select custom audio files and images through the Android system picker. The app reads
+          only the specifically selected file and stores a local copy in its internal app storage for
+          continued use. It does not request general access to the device's photos, media, or other files.
+        </p>
+        <p>
+          Selected files are not uploaded to a developer server and cannot be viewed by the developer.
+          Previously stored local copies can be deleted in the app when they are replaced or removed.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. QR-code logo transfer on the local network</h2>
+        <p>
+          On Android TV, a logo can optionally be transferred from a second device. When the user explicitly
+          starts this feature, the app displays a QR code and temporarily opens a local transfer service.
+          Both devices must be connected to the same local network.
+        </p>
+        <p>
+          The selected image, its file name, and technically necessary connection data such as the local IP
+          address are processed only within the local network. The transfer does not use a developer server.
+          Access is protected by a randomly generated temporary address and ends when the window is closed
+          or the transfer has been completed.
+        </p>
+        <p class="note">
+          The local transfer uses an unencrypted HTTP connection. It should therefore be used only on a
+          trusted private network.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Reading training tasks aloud</h2>
+        <p>
+          Training tasks can optionally be read aloud through the Android text-to-speech service configured
+          on the device. Sparring Timer provides only the name of the relevant task to the selected
+          text-to-speech service.
+        </p>
+        <p>
+          Sparring Timer does not transmit this text to the developer. Whether a text-to-speech service
+          processes text only on the device or also on its provider's servers depends on the selected service
+          and its privacy policy.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Audio focus and Lower music volume</h2>
+        <p>
+          When <strong>Lower music volume</strong> is enabled, Sparring Timer uses Android audio focus while
+          playing its timer signals. This may temporarily lower the playback volume of another audio app and
+          release it afterwards.
+        </p>
+        <p>
+          This does not give Sparring Timer access to playlists, account information, or content from the
+          other audio app.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Optional music control and notification access</h2>
+        <p>
+          The optional <strong>Control music</strong> feature can pause active media playback when training is
+          paused or ended and resume it when training continues. Android requires notification access to be
+          granted separately in system settings for this feature.
+        </p>
+        <p>
+          Sparring Timer uses this access to identify active media sessions and operate their playback controls.
+          The package name of the paused audio app is stored locally so that only this playback is resumed.
+          Notification content is not stored, analyzed, or transmitted to the developer by Sparring Timer.
+        </p>
+        <p>
+          The feature and notification access can be disabled at any time in the app or Android system settings.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Notifications, background operation, and vibration</h2>
+        <p>
+          Sparring Timer uses a foreground service so that a user-started timer can continue while the screen
+          is locked or another app is in use. Android may display a notification containing the timer status
+          and controls. Depending on the Android version, notification permission may be requested separately.
+        </p>
+        <p>
+          The app can optionally add vibration to timer signals. Timer status and vibration signals are processed
+          locally and are not transmitted to the developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Internet and network access</h2>
+        <p>
+          Internet and local-network access is used exclusively for the optional QR-code logo transfer on
+          Android TV. This network feature is not used on smartphones or tablets. No internet connection is
+          required for the timer, presets, training plans, or other core features.
+        </p>
+        <p>
+          Sparring Timer does not connect to a developer-operated external server and does not transmit timer
+          settings, training data, sounds, or logos to the developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>11. Bluetooth speakers and headphones</h2>
+        <p>
+          Audio can be played through the output currently selected by Android, including previously connected
+          Bluetooth speakers or headphones. Sparring Timer does not request Bluetooth permission, search for
+          Bluetooth devices, or read Bluetooth device lists.
+        </p>
+      </section>
+
+      <section>
+        <h2>12. Advertising, analytics, tracking, and sharing</h2>
+        <p>Sparring Timer does not use:</p>
+        <ul>
+          <li>advertising networks or personalized advertising</li>
+          <li>tracking or analytics services</li>
+          <li>third-party crash-reporting services</li>
+          <li>social-media tracking or login SDKs</li>
+        </ul>
+        <p>
+          Because the developer does not receive personal training or usage data through the app, the developer
+          does not share such data with third parties.
+        </p>
+      </section>
+
+      <section>
+        <h2>13. Android backup and device transfer</h2>
+        <p>
+          The app generally permits Android backup and device-transfer functions. Depending on the Android version,
+          device settings, and selected backup service, locally stored app data may be backed up by the operating
+          system or transferred to a new device.
+        </p>
+        <p>
+          This processing is controlled by Android or the backup service selected by the user, not by a
+          Sparring Timer server. The privacy policy of the relevant operating-system or backup provider also applies.
+        </p>
+      </section>
+
+      <section>
+        <h2>14. Retention and deletion</h2>
+        <p>
+          Local app data remains stored until it is deleted or replaced within the app, the app data is cleared
+          through Android, or the app is uninstalled. Presets, training plans, custom sounds, and the background
+          logo can be managed or deleted individually within the app.
+        </p>
+      </section>
+
+      <section>
+        <h2>15. Changes to this privacy policy</h2>
+        <p>
+          This privacy policy will be updated when features are added, data processing changes, or an update is
+          required for legal or technical reasons. The current version will be published on this page.
+        </p>
+      </section>
+
+      <section>
+        <h2>16. Contact</h2>
+        <p>For privacy questions or questions about Sparring Timer, contact the developer at:</p>
+        <p>
+          Breakroomdancer<br>
+          Email: <a href="mailto:breakroomdancer@gmail.com">breakroomdancer@gmail.com</a>
         </p>
       </section>
     </main>
@@ -356,5 +607,33 @@
       © 2026 Breakroomdancer · Sparring Timer
     </footer>
   </div>
+
+  <script>
+    (() => {
+      const deButton = document.getElementById('language-de');
+      const enButton = document.getElementById('language-en');
+      const deElements = document.querySelectorAll('[data-de]');
+      const enElements = document.querySelectorAll('[data-en]');
+
+      function setLanguage(language) {
+        const english = language === 'en';
+        document.documentElement.lang = english ? 'en' : 'de';
+        document.title = english
+          ? 'Privacy Policy – Sparring Timer'
+          : 'Datenschutzerklärung – Sparring Timer';
+        deElements.forEach(element => { element.hidden = english; });
+        enElements.forEach(element => { element.hidden = !english; });
+        deButton.setAttribute('aria-pressed', String(!english));
+        enButton.setAttribute('aria-pressed', String(english));
+      }
+
+      deButton.addEventListener('click', () => setLanguage('de'));
+      enButton.addEventListener('click', () => setLanguage('en'));
+
+      if (navigator.language && navigator.language.toLowerCase().startsWith('en')) {
+        setLanguage('en');
+      }
+    })();
+  </script>
 </body>
 </html>
