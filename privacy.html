@@ -166,8 +166,8 @@
           <div class="eyebrow" data-en hidden>Privacy</div>
           <h1 data-de>Datenschutzerklärung<br><span class="app-name">Sparring Timer</span></h1>
           <h1 data-en hidden>Privacy Policy<br><span class="app-name">Sparring Timer</span></h1>
-          <p class="meta" data-de>Entwickler: Breakroomdancer · Stand: 29. August 2026</p>
-          <p class="meta" data-en hidden>Developer: Breakroomdancer · Last updated: August 29, 2026</p>
+          <p class="meta" data-de>Entwickler: Breakroomdancer · Stand: 21. September 2026</p>
+          <p class="meta" data-en hidden>Developer: Breakroomdancer · Last updated: September 21, 2026</p>
         </div>
         <div class="language-switch" aria-label="Sprache auswählen / Select language">
           <button type="button" id="language-de" aria-pressed="true">DE</button>
@@ -210,6 +210,7 @@
           <li>Hintergrund-, Schrift- und Konturfarben sowie die Sichtbarkeit des Hintergrundlogos</li>
           <li>die Einstellung zum Vorlesen von Aufgaben und die für die jeweilige App-Sprache ausgewählte Stimme</li>
           <li>die gewählte App-Sprache</li>
+          <li>das gewählte Erscheinungsbild der App</li>
           <li>Namen und lokale Kopien ausgewählter eigener Sounds und Logos</li>
           <li>bei aktivierter Musiksteuerung den Paketnamen der von der App pausierten Audio-App</li>
         </ul>
@@ -234,18 +235,19 @@
       </section>
 
       <section>
-        <h2>5. Logoübertragung per QR-Code im lokalen Netzwerk</h2>
+        <h2>5. Logo- und Soundübertragung per QR-Code im lokalen Netzwerk</h2>
         <p>
-          Auf Android TV kann ein Logo optional von einem zweiten Gerät übertragen werden. Nach
-          ausdrücklichem Start zeigt die App dafür einen QR-Code und öffnet vorübergehend einen
-          lokalen Übertragungsdienst. Beide Geräte müssen sich im selben lokalen Netzwerk befinden.
+          Auf Android TV können ein Logo oder eigene Sounds optional von einem zweiten Gerät übertragen
+          werden. Nach ausdrücklichem Start zeigt die App dafür einen QR-Code und öffnet vorübergehend
+          einen lokalen Übertragungsdienst. Beide Geräte müssen sich im selben lokalen Netzwerk befinden.
         </p>
         <p>
-          Das ausgewählte Bild, sein Dateiname sowie technisch notwendige Verbindungsdaten wie die
-          lokale IP-Adresse werden nur innerhalb des lokalen Netzwerks verarbeitet. Die Übertragung
-          erfolgt nicht über einen Server des Entwicklers. Der Zugriff ist durch eine zufällig
-          erzeugte, nur vorübergehend gültige Adresse geschützt und endet beim Schließen des Fensters
-          beziehungsweise nach abgeschlossener Übertragung.
+          Das ausgewählte Bild beziehungsweise die ausgewählte Audiodatei, der jeweilige Dateiname sowie
+          technisch notwendige Verbindungsdaten wie die lokale IP-Adresse werden nur innerhalb des lokalen
+          Netzwerks verarbeitet. Zulässige Dateien werden lokal im internen App-Speicher des Fernsehers
+          gespeichert. Die Übertragung erfolgt nicht über einen Server des Entwicklers. Der Zugriff ist
+          durch eine zufällig erzeugte, nur vorübergehend gültige Adresse geschützt und endet beim Schließen
+          des Fensters beziehungsweise nach abgeschlossener Übertragung.
         </p>
         <p class="note">
           Die lokale Übertragung verwendet eine unverschlüsselte HTTP-Verbindung. Sie sollte deshalb
@@ -322,10 +324,10 @@
       <section>
         <h2>10. Internet- und Netzwerkzugriff</h2>
         <p>
-          Der Internet- und lokale Netzwerkzugriff wird ausschließlich für die optionale QR-Logoübertragung
-          auf Android TV verwendet. Auf Smartphones und Tablets wird diese Netzwerkfunktion nicht genutzt.
-          Für Timer, Presets, Trainingspläne und die übrigen Grundfunktionen ist keine Internetverbindung
-          erforderlich.
+          Der Internet- und lokale Netzwerkzugriff wird ausschließlich für die optionale QR-Übertragung
+          von Logos und eigenen Sounds auf Android TV verwendet. Auf Smartphones und Tablets wird diese
+          Netzwerkfunktion innerhalb der Sparring-Timer-App nicht genutzt. Für Timer, Presets,
+          Trainingspläne und die übrigen Grundfunktionen ist keine Internetverbindung erforderlich.
         </p>
         <p>
           Sparring Timer stellt keine Verbindung zu einem eigenen externen Server her und überträgt keine
@@ -435,6 +437,7 @@
           <li>background, text, and outline colors and background-logo visibility</li>
           <li>the setting for reading tasks aloud and the voice selected for each app language</li>
           <li>the selected app language</li>
+          <li>the selected app appearance</li>
           <li>names and local copies of selected custom sounds and logos</li>
           <li>when music control is enabled, the package name of the audio app paused by Sparring Timer</li>
         </ul>
@@ -457,17 +460,18 @@
       </section>
 
       <section>
-        <h2>5. QR-code logo transfer on the local network</h2>
+        <h2>5. QR-code transfer of logos and sounds on the local network</h2>
         <p>
-          On Android TV, a logo can optionally be transferred from a second device. When the user explicitly
-          starts this feature, the app displays a QR code and temporarily opens a local transfer service.
-          Both devices must be connected to the same local network.
+          On Android TV, a logo or custom sounds can optionally be transferred from a second device. When
+          the user explicitly starts this feature, the app displays a QR code and temporarily opens a local
+          transfer service. Both devices must be connected to the same local network.
         </p>
         <p>
-          The selected image, its file name, and technically necessary connection data such as the local IP
-          address are processed only within the local network. The transfer does not use a developer server.
-          Access is protected by a randomly generated temporary address and ends when the window is closed
-          or the transfer has been completed.
+          The selected image or audio file, its file name, and technically necessary connection data such as
+          the local IP address are processed only within the local network. Accepted files are stored locally
+          in the TV's internal app storage. The transfer does not use a developer server. Access is protected
+          by a randomly generated temporary address and ends when the window is closed or the transfer has
+          been completed.
         </p>
         <p class="note">
           The local transfer uses an unencrypted HTTP connection. It should therefore be used only on a
@@ -541,9 +545,10 @@
       <section>
         <h2>10. Internet and network access</h2>
         <p>
-          Internet and local-network access is used exclusively for the optional QR-code logo transfer on
-          Android TV. This network feature is not used on smartphones or tablets. No internet connection is
-          required for the timer, presets, training plans, or other core features.
+          Internet and local-network access is used exclusively for the optional QR-code transfer of logos
+          and custom sounds on Android TV. This network feature is not used within the Sparring Timer app on
+          smartphones or tablets. No internet connection is required for the timer, presets, training plans,
+          or other core features.
         </p>
         <p>
           Sparring Timer does not connect to a developer-operated external server and does not transmit timer
